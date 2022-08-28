@@ -1,6 +1,6 @@
 # Expense Manager
 
-### This is a simple program written in python in which you can calculate your savings by providing it your expenses and income ( monthly / yearly salary ) 
+### This is a simple program written in python in which you can calculate your savings by providing it your expenses and income ( monthly / yearly salary ). Database - Sqlite
 
 
 #### Requirements 
