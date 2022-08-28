@@ -45,9 +45,14 @@ def add_income():
     t.sleep(0.2)
 
     for row in setIncome:
-        print("Your income is: ", row[1], "Rs")
-        t.sleep(0.2)
-        print(" If you want to change your income, \n Press 0.\n If you want to continue, \n Press 1")
+        print("You've already added your income that is: ", row[1], "Rs")
+        t.sleep(0.15)
+        print(" If you wish to change your income, \n Press 0.\n If you want to continue, \n Press 1")
+        choice = int(input("Enter your choice: "))
+        if choice == 0:
+            change_income()
+        elif choice == 1:
+            main()
 
     if setIncome == []:
         income = int(input("Enter your income ( in numbers no comma eg. 283712 ): "))
@@ -83,6 +88,7 @@ def change_income():
         print("Your new income is: ", newIncome, "Rs")
         cur.execute("UPDATE income SET income = ?", (newIncome,))
         conn.commit()
+        main()
         
 def add_expense():
     print("1. Add Expense")
