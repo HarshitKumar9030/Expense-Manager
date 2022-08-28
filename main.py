@@ -9,17 +9,18 @@ import random
 import sqlite3 as sql
 import time as t
 
-input("Welcome to Expense Manager - Enter")
+input("Welcome to Expense Manager - Enter\n")
 t.sleep(0.2)
-print("This program will help you to manage your expenses.")
+print("This program will calculate your savings by subtracting your expenses from your income.")
+
 
 def main():
-    print("1. Add Expense")
+    print("1. Add Income")
     print("2. View Expense")
     print("3. Exit")
     choice = int(input("Enter your choice: "))
     if choice == 1:
-        add_expense()
+        add_income()
     elif choice == 2:
         view_expense()
     elif choice == 3:
@@ -28,20 +29,24 @@ def main():
         print("Invalid choice")
         main()
 
+
+def add_income():
+    income = int(input("Enter your income ( in numbers no comma eg. 283712 ): "))
+
+
+
 def add_expense():
     print("1. Add Expense")
-    print("2. View Expense")
-    print("3. Exit")
+    print("2. Exit")
     choice = int(input("Enter your choice: "))
     if choice == 1:
         add_expense()
     elif choice == 2:
-        view_expense()
-    elif choice == 3:
         exit()
     else:
         print("Invalid choice")
         add_expense()
+
 
 def view_expense():
     print("1. View Expense")
@@ -55,11 +60,10 @@ def view_expense():
         print("Invalid choice")
         view_expense()
 
+
 def exit():
-    print("Thank you for using Expense Manager")
-    exit()
+    print("Thank you for using Expense Manager - Have a nice everything")
+    t.sleep(1)
+
 
 main()
-    
-
-
