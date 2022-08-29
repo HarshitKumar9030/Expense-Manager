@@ -22,7 +22,12 @@ print("This program will calculate your savings by subtracting your expenses fro
 def def_board():
     print("1. Add Income")
     print("2. View Income")
-    print("3. Exit")
+    print("3. Add Expense(S)")
+    print("4. View Expense(s)")
+    print("5. View Savings")
+    print("6. About Us")
+    print("7. Expense Manager")
+    print("8. Exit")
 
 def main():
     def_board()
@@ -31,15 +36,17 @@ def main():
         add_income()
     elif choice == 2:
         view_income()
+    elif choice == 6:
+        about_us()
     elif choice == 3:
         exit()
     else:
         print("Invalid choice")
+        t.sleep(0.7)
         main()
 
 
 def add_income():
-    # Check if the user has already added income
 
     setIncome = cur.execute("SELECT * FROM income").fetchall()
     t.sleep(0.2)
@@ -59,7 +66,7 @@ def add_income():
         t.sleep(0.1)
         print("Your income is: ", income , "Rs",)
         t.sleep(0.1)
-        cur.execute("INSERT INTO income (income) VALUES (?)", (income,))
+        conn.execute("INSERT INTO income (income) VALUES (?)", (income,))
         conn.commit()
         print("Income added to database")
 
@@ -86,7 +93,7 @@ def change_income():
         newIncome = int(input("Enter your new income ( in numbers no comma eg. 283712 ): "))
         t.sleep(0.2)
         print("Your new income is: ", newIncome, "Rs")
-        cur.execute("UPDATE income SET income = ?", (newIncome,))
+        conn.execute("UPDATE income SET income = ?", (newIncome,))
         conn.commit()
         main()
         
@@ -115,11 +122,28 @@ def view_expense():
         print("Invalid choice")
         view_expense()
 
+def about_us():
+    print("\n\n\nThis program is developed by harshitkumar9030")
+    t.sleep(0.1)
+    print("Instagram - @harshit_kumarofficial")
+    t.sleep(0.1)
+    print("Github - @harshitkumar9030")
+    t.sleep(0.1)
+    print("Twitter - @OhHarshit")
+    t.sleep(0.1)
+    print("Mail me - harshitkumar9030@gmail.com")
+    t.sleep(0.1)
+    print("Thank you for using Expense Manager, If you like it please give me a star on Github and please sponsor it (is you can), It will be very much appreciated\n\n\n")
+    t.sleep(2)
+    print("Press 1 to go back and press 7 to exit")
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+        main()
+    elif choice == 7:
+        exit()
 
 def exit():
     print("Thank you for using Expense Manager - Have a nice everything")
     t.sleep(1)
 
-
-conn.commit()
 main()
