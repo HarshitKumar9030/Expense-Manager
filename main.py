@@ -83,6 +83,9 @@ def view_income():
             change_income()
         elif choice == 1:
             main()
+        else:
+            print("Invalid choice")
+            main()
 
 
 def change_income():
@@ -102,12 +105,14 @@ def add_expense():
     print("2. Exit")
     choice = int(input("Enter your choice: "))
     if choice == 1:
+        t.sleep(0.1)
         add_expense()
     elif choice == 2:
         exit()
     else:
         print("Invalid choice")
         add_expense()
+        t.sleep(0.1)
 
 
 def view_expense():
@@ -115,12 +120,15 @@ def view_expense():
     print("2. Exit")
     choice = int(input("Enter your choice: "))
     if choice == 1:
+        t.sleep(0.1)
         view_expense()
     elif choice == 2:
+        t.sleep(0.1)
         exit()
     else:
         print("Invalid choice")
-        view_expense()
+        t.sleep(0.1)
+        main()
 
 def about_us():
     print("\n\n\nThis program is developed by harshitkumar9030")
@@ -138,9 +146,14 @@ def about_us():
     print("Press 1 to go back and press 7 to exit")
     choice = int(input("Enter your choice: "))
     if choice == 1:
+        t.sleep(0.1)
         main()
     elif choice == 7:
         exit()
+    else:
+        t.sleep(0.1)
+        print("Invalid choice")
+        main()
 
 def exit():
     print("Thank you for using Expense Manager - Have a nice everything")
