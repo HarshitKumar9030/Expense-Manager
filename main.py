@@ -33,12 +33,16 @@ def main():
     def_board()
     choice = int(input("Enter your choice: "))
     if choice == 1:
+        t.sleep(0.1)
         add_income()
     elif choice == 2:
+        t.sleep(0.1)
         view_income()
     elif choice == 6:
+        t.sleep(0.1)
         about_us()
-    elif choice == 3:
+    elif choice == 8:
+        t.sleep(0.1)
         exit()
     else:
         print("Invalid choice")
@@ -141,7 +145,7 @@ def about_us():
     t.sleep(0.1)
     print("Mail me - harshitkumar9030@gmail.com")
     t.sleep(0.1)
-    print("Thank you for using Expense Manager, If you like it please give me a star on Github and please sponsor it (is you can), It will be very much appreciated\n\n\n")
+    print("Thank you for using Expense Manager, If you like it please give it a star on Github and please sponsor it(if you can LOL), It will be very much appreciated\n\n\n")
     t.sleep(2)
     print("Press 1 to go back and press 7 to exit")
     choice = int(input("Enter your choice: "))
