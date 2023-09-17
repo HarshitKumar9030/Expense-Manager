@@ -31,24 +31,21 @@ def def_board():
 
 def main():
     def_board()
-    choice = int(input("Enter your choice: "))
-    if choice == 1:
-        t.sleep(0.1)
-        add_income()
-    elif choice == 2:
-        t.sleep(0.1)
-        view_income()
-    elif choice == 6:
-        t.sleep(0.1)
-        about_us()
-    elif choice == 8:
-        t.sleep(0.1)
-        exit()
-    else:
-        print("Invalid choice")
-        t.sleep(0.7)
-        main()
+    
+    options = {
+        1: add_income,
+        2: view_income,
+        6: about_us,
+        8: exit
+    }
 
+    if choice := options.get(int(input("Enter your choice: "))):
+        time.sleep(0.1)
+        choice()
+    else:
+        print("Invalid Input")
+        time.sleep(0.7)
+        main()
 
 def add_income():
 
