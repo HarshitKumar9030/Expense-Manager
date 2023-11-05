@@ -20,14 +20,11 @@ print("This program will calculate your savings by subtracting your expenses fro
 
 
 def def_board():
-    print("1. Add Income")
-    print("2. View Income")
-    print("3. Add Expense(S)")
-    print("4. View Expense(s)")
-    print("5. View Savings")
-    print("6. About Us")
-    print("7. Expense Manager")
-    print("8. Exit")
+    print(
+        "1. Add Income", "2. View Income", "3. Add Expense(S)", "4. View Expense(s)",
+        "5. View Savings", "6. About Us", "7. Expense Manager", "8. Exit",
+        sep="\n"
+    )
 
 def main():
     def_board()
@@ -53,11 +50,11 @@ def add_income():
     t.sleep(0.2)
 
     for row in setIncome:
-        print("You've already added your income that is: ", row[1], "Rs")
+        print("You've already added your income that is: ", "Rs", row[1])
         t.sleep(0.15)
         print(" If you wish to change your income, \n Press 0.\n If you want to continue, \n Press 1")
         choice = int(input("Enter your choice: "))
-        if choice == 0:
+        if not choice:
             change_income()
         elif choice == 1:
             main()
@@ -65,7 +62,7 @@ def add_income():
     if setIncome == []:
         income = int(input("Enter your income ( in numbers no comma eg. 283712 ): "))
         t.sleep(0.1)
-        print("Your income is: ", income , "Rs",)
+        print("Your income is: ", "Rs", income)
         t.sleep(0.1)
         conn.execute("INSERT INTO income (income) VALUES (?)", (income,))
         conn.commit()
@@ -76,11 +73,11 @@ def add_income():
 def view_income():
     setIncome = cur.execute("SELECT * FROM income")
     for row in setIncome:
-        print("Your income is: ", row[1], "Rs")
+        print("Your income is: ", "Rs", row[1])
         t.sleep(0.2)
         print(" If you want to change your income, \n Enter 0.\n If you want to continue, \n Enter 1")
         choice = int(input("Enter your choice: "))
-        if choice == 0:
+        if not choice:
             change_income()
         elif choice == 1:
             main()
@@ -92,11 +89,11 @@ def view_income():
 def change_income():
     setIncome = cur.execute("SELECT * FROM income").fetchall()
     for row in setIncome:
-        print("Your current income is: ", row[1], "Rs")
+        print("Your current income is: ", "Rs", row[1])
         t.sleep(0.2)
         newIncome = int(input("Enter your new income ( in numbers no comma eg. 283712 ): "))
         t.sleep(0.2)
-        print("Your new income is: ", newIncome, "Rs")
+        print("Your new income is: ", "Rs", newIncome)
         conn.execute("UPDATE income SET income = ?", (newIncome,))
         conn.commit()
         main()
